@@ -22,9 +22,11 @@ pipeline {
             }
         }
         stage('Deliver') {
+            input message: 'Lanjutkan ke tahap Deploy?'
             steps {
                 sh './jenkins/scripts/deliver.sh'
             }
+            sleep time: 1, unit: 'MINUTES'
         }
     }
 }
